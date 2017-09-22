@@ -7,7 +7,8 @@
 //
 
 #import "AppDelegate.h"
-
+#import "ViewController.h"
+#import "ESTabBarController.h"
 @interface AppDelegate ()
 
 @end
@@ -16,7 +17,12 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    ViewController *vc = [[ViewController alloc] init];
+    ESTabBarController *tabVc = [[ESTabBarController alloc] init];
+    [tabVc setViewController:vc title:@"1" normalImage:nil selectedImage:nil];
+    self.window.rootViewController = tabVc;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
